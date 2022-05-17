@@ -4,9 +4,9 @@ public class Question {
     private int questionCode;
     private String questionName;
     private String questionLevel;
-    private Language language;
+    private String language;
 
-    public Question(int questionCode, String questionName, String questionLevel, Language language) {
+    public Question(int questionCode, String questionName, String questionLevel, String language) {
         this.questionCode = questionCode;
         this.questionName = questionName;
         this.questionLevel = questionLevel;
@@ -35,5 +35,13 @@ public class Question {
 
     public void setQuestionLevel(String questionLevel) {
         this.questionLevel = questionLevel;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }
