@@ -10,5 +10,8 @@ public class Runner {
         for (Question question : Data.listQuestion()) {
             System.out.println(question.toString());
         }
+
+        Interviewee people1 = new Interviewee("Quinton", "Junior");
+        Interview interview = new Interview(people1);
     }
 }
