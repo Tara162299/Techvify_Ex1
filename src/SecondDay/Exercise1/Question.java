@@ -44,4 +44,9 @@ public class Question {
     public void setLanguage(String language) {
         this.language = language;
     }
+
+    public String toString() {
+        return "Question code: " + questionCode + "| Content: " + questionName
+                + "| Level: " + questionLevel + "| Language: " + language;
+    }
 }

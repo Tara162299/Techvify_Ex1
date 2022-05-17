@@ -24,4 +24,8 @@ public class Language {
     public void setLanguageName(String languageName) {
         this.languageName = languageName;
     }
+
+    public String toString() {
+        return "Language: " + languageName + "| Code: " + languageCode;
+    }
 }
