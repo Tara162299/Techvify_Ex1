@@ -5,7 +5,7 @@ public class Runner {
         Interview interview = new Interview();
 
         Interviewee people1 = new Interviewee("Quinton", "Junior", "Java");
-        Interviewee people2 = new Interviewee("Tara", "Senior", "ReactJS");
+        Interviewee people2 = new Interviewee("Tara", "Senior", "Java");
         Interviewee people3 = new Interviewee("Martin", "Mid-senior", "ReactJS");
 
         System.out.println("Questions for interviewee " + people1.name() + " (" + people1.level() + ", " + people1.language() + ")" + " are: ");

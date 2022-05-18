@@ -45,7 +45,6 @@ public class Interview implements questionGenerator, languageFilter {
 
         switch (interviewee.level()) {
             case "Junior":
-
                 while (resultQuestionList.size() < 4) {
                     tempJunior = juniorQuestionList.stream().skip(random.nextInt(juniorQuestionList.size())).findFirst().get();
                     if (resultQuestionList.size() == 0) {
@@ -92,7 +91,7 @@ public class Interview implements questionGenerator, languageFilter {
     public void checkDupQuestion(List<Question> questionList, Question question) {
         boolean statement = false;
         for (Question temp : questionList) {
-            if (temp.equals(question)) {
+            if (question.equals(temp)) {
                 statement = true;
             }
         }
