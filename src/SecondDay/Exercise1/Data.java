@@ -17,14 +17,14 @@ public class Data {
     }
 
     public static List<Question> listQuestion() {
-        Question question1 = new Question(1, "Các đặc tính OOP là gì?", "Senior", "Java");
-        Question question2 = new Question(2, "Primative variable là gì?", "Mid senior", "Java");
-        Question question3 = new Question(3, "Nêu các điểm khác nhau giữa List và Set?", "Junior", "Java");
+        Question question1 = new Question(1, "Cac dac tinh OOP la gi?", "Senior", "Java");
+        Question question2 = new Question(2, "Primative variable la gi?", "Mid senior", "Java");
+        Question question3 = new Question(3, "Neu cac diem khac nhau giua List va Set?", "Junior", "Java");
 
-        Question question4 = new Question(4, "Chỉ ra những điểm mới của ES6", "Senior", "ReactJS");
-        Question question5 = new Question(5, "Liệt kê ra các component life cycle?", "Mid senior", "ReactJS");
-        Question question6 = new Question(6, "Props là gì?", "Junior", "ReactJS");
-        Question question7 = new Question(7, "State là gì?", "Junior", "ReactJS");
+        Question question4 = new Question(4, "Chi ra nhung diem moi cua ES6", "Senior", "ReactJS");
+        Question question5 = new Question(5, "Liet ke ra cac component life cycle?", "Mid senior", "ReactJS");
+        Question question6 = new Question(6, "Props la gi?", "Junior", "ReactJS");
+        Question question7 = new Question(7, "State la gi?", "Junior", "ReactJS");
 
         questionJavaList.add(question1);
         questionJavaList.add(question2);

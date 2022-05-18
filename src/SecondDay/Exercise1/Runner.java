@@ -11,7 +11,7 @@ public class Runner {
             System.out.println(question.toString());
         }
 
-        Interviewee people1 = new Interviewee("Quinton", "Junior");
+        Interviewee people1 = new Interviewee("Quinton", "Junior", "Java");
         Interview interview = new Interview(people1);
     }
 }
