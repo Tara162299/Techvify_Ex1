@@ -51,8 +51,8 @@ public class Interview implements questionGenerator, languageFilter {
                 }
                 tempSenior = seniorQuestionList.stream().skip(random.nextInt(seniorQuestionList.size())).findFirst().get();
                 resultQuestionList.add(tempSenior);
-
                 break;
+
             case "Mid-senior":
                 for (int i = 0; i < 2; i++) {
                     tempJunior = juniorQuestionList.stream().skip(random.nextInt(juniorQuestionList.size())).findFirst().get();
@@ -64,6 +64,7 @@ public class Interview implements questionGenerator, languageFilter {
                     resultQuestionList.add(tempSenior);
                 }
                 break;
+
             case "Senior":
                 for (int i = 0; i < 5; i++) {
                     tempSenior = seniorQuestionList.stream().skip(random.nextInt(seniorQuestionList.size())).findFirst().get();
