@@ -45,31 +45,44 @@ public class Interview implements questionGenerator, languageFilter {
 
         switch (interviewee.level()) {
             case "Junior":
-                for (int i = 0; i < 4; i++) {
+
+                while (resultQuestionList.size() < 4) {
                     tempJunior = juniorQuestionList.stream().skip(random.nextInt(juniorQuestionList.size())).findFirst().get();
-                    checkDupQuestion(resultQuestionList, tempJunior);
-                    //resultQuestionList.add(tempJunior);
+                    if (resultQuestionList.size() == 0) {
+                        resultQuestionList.add(tempJunior);
+                    } else {
+                        checkDupQuestion(resultQuestionList, tempJunior);
+                    }
                 }
+
                 tempSenior = seniorQuestionList.stream().skip(random.nextInt(seniorQuestionList.size())).findFirst().get();
                 resultQuestionList.add(tempSenior);
                 break;
 
             case "Mid-senior":
-                for (int i = 0; i < 2; i++) {
+                while (resultQuestionList.size() < 2) {
                     tempJunior = juniorQuestionList.stream().skip(random.nextInt(juniorQuestionList.size())).findFirst().get();
-                    resultQuestionList.add(tempJunior);
+                    if (resultQuestionList.size() == 0) {
+                        resultQuestionList.add(tempJunior);
+                    } else {
+                        checkDupQuestion(resultQuestionList, tempJunior);
+                    }
                 }
 
-                for (int i = 0; i < 3; i++) {
+                while (resultQuestionList.size() < 5) {
                     tempSenior = seniorQuestionList.stream().skip(random.nextInt(seniorQuestionList.size())).findFirst().get();
-                    resultQuestionList.add(tempSenior);
+                    checkDupQuestion(resultQuestionList, tempSenior);
                 }
                 break;
 
             case "Senior":
-                for (int i = 0; i < 5; i++) {
+                while (resultQuestionList.size() < 5) {
                     tempSenior = seniorQuestionList.stream().skip(random.nextInt(seniorQuestionList.size())).findFirst().get();
-                    resultQuestionList.add(tempSenior);
+                    if (resultQuestionList.size() == 0) {
+                        resultQuestionList.add(tempSenior);
+                    } else {
+                        checkDupQuestion(resultQuestionList, tempSenior);
+                    }
                 }
                 break;
         }
@@ -77,15 +90,14 @@ public class Interview implements questionGenerator, languageFilter {
     }
 
     public void checkDupQuestion(List<Question> questionList, Question question) {
-        boolean checkDup = false;
-
+        boolean statement = false;
         for (Question temp : questionList) {
             if (temp.equals(question)) {
-                checkDup = true;
+                statement = true;
             }
         }
 
-        if (!checkDup) {
+    if (!statement) {
             questionList.add(question);
         }
     }

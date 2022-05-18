@@ -11,7 +11,7 @@ public class Data {
         questionJavaList.add(new Question(1, "Cac dac tinh OOP la gi?", "Junior", "Java"));
         questionJavaList.add(new Question(2, "Primative variable la gi?", "Junior", "Java"));
         questionJavaList.add(new Question(3, "Neu cac diem khac nhau giua List va Set?", "Junior", "Java"));
-        questionJavaList.add(new Question(4, "Cac dac tinh OOP la gi?", "Senior", "Junior"));
+        questionJavaList.add(new Question(4, "Cac dac tinh OOP la gi?", "Junior", "Java"));
         questionJavaList.add(new Question(5, "Primative variable la gi?", "Junior", "Java"));
         questionJavaList.add(new Question(6, "Neu cac diem khac nhau giua List va Set?", "Senior", "Java"));
         questionJavaList.add(new Question(7, "Cac dac tinh OOP la gi?", "Senior", "Java"));
