@@ -10,7 +10,6 @@ public class menuChoice {
     public void menuChoice(String choice) {
         Scanner scan = new Scanner(System.in);
 
-
         switch (choice) {
             case "Create and add a new person":
                 peopleList.add(createNewPerson());
@@ -69,15 +68,15 @@ public class menuChoice {
 
     public People searchPeople(String choice) {
         Scanner scan = new Scanner(System.in);
-        People temp = new People();
-
+        People correctPerson = new People();
 
         switch (choice) {
             case "Name" -> {
                 String searchName = scan.nextLine();
                 for (People people : peopleList) {
                     if (searchName.equals(people.getName())) {
-                        return people;
+                        correctPerson = people;
+                        return correctPerson;
                     }
                 }
             }
@@ -85,7 +84,8 @@ public class menuChoice {
                 String searchComName = scan.nextLine();
                 for (People people : peopleList) {
                     if (searchComName.equals(people.getCompany())) {
-                        return people;
+                        correctPerson = people;
+                        return correctPerson;
                     }
                 }
             }
@@ -93,7 +93,8 @@ public class menuChoice {
                 int searchYoE = scan.nextInt();
                 for (People people : peopleList) {
                     if (searchYoE == people.getYearOfExp()) {
-                        return people;
+                        correctPerson = people;
+                        return correctPerson;
                     }
                 }
             }
@@ -101,13 +102,14 @@ public class menuChoice {
                 double searchRating = scan.nextDouble();
                 for (People people : peopleList) {
                     if (searchRating == people.getRating()) {
-                        return people;
+                        correctPerson = people;
+                        return correctPerson;
                     }
                 }
             }
             case "Exit" -> System.exit(0);
         }
-        return null;
+        return correctPerson;
     }
 
     public People createNewPerson() {
