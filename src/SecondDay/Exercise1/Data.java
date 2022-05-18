@@ -4,17 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Data {
-    public static List<Language> languageList = new ArrayList<>();
     public static List<Question> questionJavaList = new ArrayList<>();
-
-    public static List<Language> listLanguage() {
-        Language Java = new Language(1, "Java");
-        Language ReactJS = new Language(2, "ReactJS");
-
-        languageList.add(Java);
-        languageList.add(ReactJS);
-        return languageList;
-    }
 
     public static List<Question> listQuestion() {
         Question question1 = new Question(1, "Cac dac tinh OOP la gi?", "Junior", "Java");
