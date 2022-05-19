@@ -7,5 +7,5 @@ import java.util.List;
 
 @FunctionalInterface
 public interface QuestionGenerator {
-    List<Question> oldQuestionGenerator(List<Question> filterLanguageQuestionList, Interviewee interviewee);
+    List<Question> getQuestionList(List<Question> filterLanguageQuestionList, Interviewee interviewee);
 }
