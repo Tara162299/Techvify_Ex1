@@ -1,19 +1,11 @@
 package SecondDay.Exercise1;
-import java.sql.SQLOutput;
+import SecondDay.Exercise1.Interfaces.LanguageFilter;
+import SecondDay.Exercise1.Interfaces.QuestionGenerator;
+
 import java.util.*;
 import java.util.stream.*;
 
-@FunctionalInterface
-interface QuestionGenerator {
-    List<Question> questionGenerator(List<Question> filterLanguageQuestionList, Interviewee interviewee);
-}
-
-@FunctionalInterface
-interface LanguageFilter {
-    List<Question> languageFilter(Interviewee interviewee);
-}
-
-public class Interview implements QuestionGenerator, LanguageFilter {
+public class InterviewGenerator implements QuestionGenerator, LanguageFilter {
 
     @Override
     public List<Question> languageFilter(Interviewee interviewee) {
@@ -25,7 +17,7 @@ public class Interview implements QuestionGenerator, LanguageFilter {
 
 
     @Override
-    public List<Question> questionGenerator(List<Question> filterLanguageQuestionList, Interviewee interviewee) {
+    public List<Question> oldQuestionGenerator(List<Question> filterLanguageQuestionList, Interviewee interviewee) {
         List<Question> seniorQuestionList = filterLanguageQuestionList.stream().
                 filter(q -> Objects.equals(q.getQuestionLevel(), "Senior")).toList();
 
@@ -95,5 +87,54 @@ public class Interview implements QuestionGenerator, LanguageFilter {
     if (!isDup) {
             questionList.add(question);
         }
+    }
+
+    public List<Question> questionGenerator(List<Question> languageFilter, String level, int numOfQuestion) {
+        Question question;
+
+        List<Question> questionList = languageFilter.stream().
+                filter(q -> q.getQuestionLevel().equals(level)).toList();
+
+        List<Question> QuestionList = new ArrayList<>();
+        Random random = new Random();
+
+        while (QuestionList.size() < numOfQuestion) {
+            question = questionList.stream().skip(random.nextInt(questionList.size())).findFirst().get();
+
+            if (QuestionList.size() == 0) {
+                QuestionList.add(question);
+            }
+            else {
+                checkDupQuestion(QuestionList, question);
+            }
+        }
+        return QuestionList;
+    }
+
+    public List<Question> getQuestionList(List<Question> filterLanguageQuestionList, Interviewee interviewee) {
+        List<Question> resultQuestionList = new ArrayList<>();
+        List<Question> questionGeneratorJunior;
+        List<Question> questionGeneratorSenior;
+
+        switch (interviewee.level()) {
+            case "Junior" -> {
+                questionGeneratorJunior = questionGenerator(filterLanguageQuestionList, "Junior", 4);
+                questionGeneratorSenior = questionGenerator(filterLanguageQuestionList, "Junior", 1);
+                resultQuestionList.addAll(questionGeneratorJunior);
+                resultQuestionList.addAll(questionGeneratorSenior);
+            }
+            case "Mid-senior" -> {
+                questionGeneratorJunior = questionGenerator(filterLanguageQuestionList, "Junior", 2);
+                questionGeneratorSenior = questionGenerator(filterLanguageQuestionList, "Senior", 3);
+                resultQuestionList.addAll(questionGeneratorJunior);
+                resultQuestionList.addAll(questionGeneratorSenior);
+            }
+            case "Senior" -> {
+                questionGeneratorSenior = questionGenerator(filterLanguageQuestionList, "Senior", 5);
+                resultQuestionList.addAll(questionGeneratorSenior);
+            }
+        }
+
+        return resultQuestionList;
     }
 }
