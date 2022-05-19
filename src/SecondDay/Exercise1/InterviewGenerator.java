@@ -10,7 +10,7 @@ public class InterviewGenerator implements QuestionGenerator, LanguageFilter {
     @Override
     public List<Question> languageFilter(Interviewee interviewee) {
         List<Question> languageFilterList;
-        languageFilterList = Data.listQuestion().stream().filter(q -> q.getLanguage().equals(interviewee.language())).collect(Collectors.toList());
+        languageFilterList = Data.getQuestionList().stream().filter(q -> q.getLanguage().equals(interviewee.language())).collect(Collectors.toList());
 
         return languageFilterList;
     }

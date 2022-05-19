@@ -6,7 +6,7 @@ import java.util.List;
 public class Data {
     public static List<Question> questionJavaList = new ArrayList<>();
 
-    public static List<Question> listQuestion() {
+    private static void createQuestionList() {
 
         questionJavaList.add(new Question(1, "Cac dac tinh OOP la gi?", "Junior", "Java"));
         questionJavaList.add(new Question(2, "Primative variable la gi?", "Junior", "Java"));
@@ -30,6 +30,14 @@ public class Data {
         questionJavaList.add(new Question(19, "Props la gi?", "Senior", "ReactJS"));
         questionJavaList.add(new Question(20, "State la gi?", "Senior", "ReactJS"));
 
+
+    }
+
+    public static List<Question> getQuestionList() {
+        if (questionJavaList.size() == 0) {
+            createQuestionList();
+        }
         return questionJavaList;
     }
+
 }
