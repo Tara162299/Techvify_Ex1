@@ -13,6 +13,10 @@ public class Question {
         this.language = language;
     }
 
+    public int getQuestionCode() {
+        return questionCode;
+    }
+
     public String getQuestionLevel() {
         return questionLevel;
     }

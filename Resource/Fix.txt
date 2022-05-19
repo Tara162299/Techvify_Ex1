@@ -1,0 +1,4 @@
+- Tach het cac interface ra cac class rieng
+- Fix method theo y hieu
+- Fix switch thanh so sanh equals/regex
+- Method ko duoc dai

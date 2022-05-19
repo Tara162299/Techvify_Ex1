@@ -1,31 +1,26 @@
 package SecondDay.Exercise1;
+import java.sql.SQLOutput;
 import java.util.*;
 import java.util.stream.*;
 
 @FunctionalInterface
-interface questionGenerator {
+interface QuestionGenerator {
     List<Question> questionGenerator(List<Question> filterLanguageQuestionList, Interviewee interviewee);
 }
 
 @FunctionalInterface
-interface languageFilter {
+interface LanguageFilter {
     List<Question> languageFilter(Interviewee interviewee);
 }
 
-public class Interview implements questionGenerator, languageFilter {
-
+public class Interview implements QuestionGenerator, LanguageFilter {
 
     @Override
     public List<Question> languageFilter(Interviewee interviewee) {
-        String userLanguage = interviewee.language();
+        List<Question> languageFilterList;
+        languageFilterList = Data.listQuestion().stream().filter(q -> q.getLanguage().equals(interviewee.language())).collect(Collectors.toList());
 
-        return switch (userLanguage) {
-            case "Java" ->
-                    Data.listQuestion().stream().filter(q -> Objects.equals(q.getLanguage(), "Java")).collect(Collectors.toList());
-            case "ReactJS" ->
-                    Data.listQuestion().stream().filter(q -> Objects.equals(q.getLanguage(), "ReactJS")).collect(Collectors.toList());
-            default -> new ArrayList<>();
-        };
+        return languageFilterList;
     }
 
 
@@ -91,7 +86,7 @@ public class Interview implements questionGenerator, languageFilter {
         boolean isDup = false;
 
         for (Question temp : questionList) {
-            if (question.equals(temp)) {
+            if (question.getQuestionCode() == temp.getQuestionCode()) {
                 isDup = true;
                 break;
             }
