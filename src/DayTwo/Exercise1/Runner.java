@@ -4,14 +4,9 @@ import DayTwo.Exercise1.Language.Java;
 
 public class Runner {
     public static void main(String[] args) {
-        Java java = new Java(1, 8);
-        System.out.println(java.getName());
-        System.out.println(java.getCode());
-        System.out.println(java.languageVersion());
-
-
 
         InterviewGenerator interview = new InterviewGenerator();
+        System.out.println("---------------------------------------------------------");
 
         Interviewee people1 = new Interviewee("Quinton", "Junior", "Java");
         Interviewee people2 = new Interviewee("Tara", "Senior", "Java");

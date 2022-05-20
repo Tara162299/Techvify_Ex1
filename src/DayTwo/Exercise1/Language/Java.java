@@ -4,19 +4,15 @@ import DayTwo.Exercise1.Interfaces.languageVersion;
 
 public class Java extends Language implements languageVersion {
 
-    private final int version;
+    private final String version;
 
-    public Java(int code, int version) {
-        super(code);
+    public Java(String name, String code, String version) {
+        super(name, code);
         this.version = version;
     }
 
-    public String getName() {
-        return "Java";
-    }
-
     @Override
-    public int languageVersion() {
+    public String languageVersion() {
         return version;
     }
 }
