@@ -1,4 +1,5 @@
 package DayTwo.Exercise1;
+
 import DayTwo.Exercise1.Interfaces.LanguageFilter;
 import DayTwo.Exercise1.Interfaces.getQuestionList;
 
@@ -14,16 +15,9 @@ public class InterviewGenerator implements getQuestionList, LanguageFilter {
 
         return languageFilterList;
     }
-    public void checkDupQuestion(List<Question> questionList, Question question) {
-        boolean isDup = false;
 
-        for (Question temp : questionList) {
-            if (question.getQuestionCode() == temp.getQuestionCode()) {
-                isDup = true;
-                break;
-            }
-        }
-        if (!isDup) {
+    public void checkDupQuestion(List<Question> questionList, Question question) {
+        if (!questionList.contains(question)) {
             questionList.add(question);
         }
     }
@@ -42,13 +36,13 @@ public class InterviewGenerator implements getQuestionList, LanguageFilter {
 
             if (QuestionList.size() == 0) {
                 QuestionList.add(question);
-            }
-            else {
+            } else {
                 checkDupQuestion(QuestionList, question);
             }
         }
         return QuestionList;
     }
+
     @Override
     public List<Question> getQuestionList(List<Question> filterLanguageQuestionList, Interviewee interviewee) {
         List<Question> resultQuestionList = new ArrayList<>();
