@@ -1,7 +1,7 @@
 package DayTwo.Exercise1.Language;
 
 public class Language {
-    protected int code;
+    private final int code;
 
     public Language(int code) {
         this.code = code;
